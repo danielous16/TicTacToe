@@ -1,0 +1,10 @@
+services:
+
+    tictactoe.use_case.user_query:
+        class: TicTacToe\Application\UseCase\User\UserQuery
+        arguments:
+            - '@tictactoe.repository.user'
+    tictactoe.use_case.user_command:
+        class: TicTacToe\Application\UseCase\User\UserCommand
+        arguments:
+            - '@tictactoe.repository.user'

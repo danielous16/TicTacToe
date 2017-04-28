@@ -1,0 +1,6 @@
+services:
+  tictactoe.repository.game:
+    class: TicTacToe\Infrastructure\GameBundle\Repository\GameRepository
+    factory: ["@doctrine.orm.entity_manager", "getRepository"]
+    arguments:
+        - TicTacToe\Domain\Game\Model\Game

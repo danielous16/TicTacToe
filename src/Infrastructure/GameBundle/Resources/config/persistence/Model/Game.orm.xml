@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+        http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <entity name="TicTacToe\Domain\Game\Model\Game" repository-class="TicTacToe\Infrastructure\GameBundle\Repository\GameRepository">
+
+        <id name="id" type="integer">
+            <generator strategy="AUTO" />
+        </id>
+
+        <many-to-one field="playerOne" target-entity="TicTacToe\Domain\User\Model\User">
+            <join-column name="player_one" referenced-column-name="id"/>
+        </many-to-one>
+
+        <many-to-one field="playerTwo" target-entity="TicTacToe\Domain\User\Model\User">
+            <join-column name="player_two" referenced-column-name="id"/>
+        </many-to-one>
+
+        <many-to-one field="lastPlayer" target-entity="TicTacToe\Domain\User\Model\User">
+            <join-column name="last_player" referenced-column-name="id"/>
+        </many-to-one>
+
+        <field name="board" type="array" nullable="false" />
+    </entity>
+</doctrine-mapping>

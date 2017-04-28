@@ -1,0 +1,9 @@
+services:
+    tictactoe.use_case.game_query:
+        class: TicTacToe\Application\UseCase\Game\GameQuery
+        arguments:
+            - '@tictactoe.repository.game'
+    tictactoe.use_case.game_command:
+        class: TicTacToe\Application\UseCase\Game\GameCommand
+        arguments:
+            - '@tictactoe.repository.game'

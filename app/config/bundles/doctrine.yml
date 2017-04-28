@@ -1,0 +1,27 @@
+# Doctrine Configuration
+doctrine:
+    dbal:
+        driver:   pdo_mysql
+        host:     "%database_host%"
+        port:     "%database_port%"
+        dbname:   "%database_name%"
+        user:     "%database_user%"
+        password: "%database_password%"
+        server_version: 5.7.8
+        charset:  UTF8
+
+    orm:
+        auto_generate_proxy_classes: "%kernel.debug%"
+        naming_strategy: doctrine.orm.naming_strategy.underscore
+        auto_mapping: true
+        mappings:
+            User:
+                type: xml
+                prefix: TicTacToe\Domain\User\Model
+                dir: '%kernel.root_dir%/../src/Infrastructure/UserBundle/Resources/config/persistence/Model'
+                is_bundle: false
+            Game:
+                type: xml
+                prefix: TicTacToe\Domain\Game\Model
+                dir: '%kernel.root_dir%/../src/Infrastructure/GameBundle/Resources/config/persistence/Model'
+                is_bundle: false

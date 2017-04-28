@@ -1,0 +1,6 @@
+services:
+  tictactoe.repository.user:
+    class: TicTacToe\Infrastructure\UserBundle\Repository\UserRepository
+    factory: ["@doctrine.orm.entity_manager", "getRepository"]
+    arguments:
+        - TicTacToe\Domain\User\Model\User
